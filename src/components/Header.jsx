@@ -3,7 +3,10 @@ import './Header.css';
 const Header = ({ activeTab, setActiveTab }) => {
   return (
     <header className="header">
-      <h1 className="header-title">Expense Tracker</h1>
+      <div className="header-title-section">
+        <h1 className="header-title">Expense Tracker</h1>
+        <p className="header-subtitle">Welcome, Arjun</p>
+      </div>
       <nav className="header-nav">
         <button
           className={`nav-btn ${activeTab === 'overview' ? 'active' : ''}`}

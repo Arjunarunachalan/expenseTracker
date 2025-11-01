@@ -8,12 +8,22 @@
   box-shadow: var(--shadow);
 }
 
+.header-title-section {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .header-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.header-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .header-nav {

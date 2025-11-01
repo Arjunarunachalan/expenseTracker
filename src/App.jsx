@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import MonthlyCashInHand from './components/MonthlyCashInHand';
-import WeeklyChart from './components/WeeklyChart';
+import AnalyticsChart from './components/AnalyticsChart';
 import TransactionForm from './components/TransactionForm';
 import TransactionTable from './components/TransactionTable';
+import CategoryBreakdown from './components/CategoryBreakdown';
 import './App.css';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
         {activeTab === 'overview' && (
           <div className="overview-container">
             <MonthlyCashInHand key={`cash-${refreshKey}`} />
-            <WeeklyChart key={`chart-${refreshKey}`} />
+            <AnalyticsChart key={`chart-${refreshKey}`} refreshKey={refreshKey} />
+            <CategoryBreakdown key={`category-${refreshKey}`} refreshKey={refreshKey} />
             <TransactionTable 
               key={`table-${refreshKey}`} 
               onDelete={refresh}
@@ -39,6 +41,7 @@ function App() {
           <TransactionTable 
             key={`table-full-${refreshKey}`} 
             onDelete={refresh}
+            showSeparateSections={true}
           />
         )}
       </main>

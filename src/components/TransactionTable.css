@@ -15,6 +15,164 @@
   gap: 1rem;
 }
 
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-toggle-btn {
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.advanced-filters {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.filter-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.clear-filters-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-filters-btn:active {
+  transform: scale(0.98);
+}
+
+.totals-summary {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.total-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.total-item.expense {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.total-item.income {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.total-item.grand {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 700;
+}
+
+.total-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.total-item.grand .total-label {
+  color: white;
+}
+
+.total-value {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.total-item.expense .total-value {
+  color: var(--danger-color);
+}
+
+.total-item.income .total-value {
+  color: var(--secondary-color);
+}
+
+.total-item.grand .total-value {
+  color: white;
+}
+
+.total-value.negative {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.transaction-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
 .table-header h2 {
   font-size: 1.125rem;
   font-weight: 600;

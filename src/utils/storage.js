@@ -116,3 +116,87 @@ export const getWeeklyData = () => {
   }));
 };
 
+export const getMonthlyData = () => {
+  const expenses = getExpenses();
+  const now = new Date();
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+  const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  
+  const monthlyExpenses = expenses.filter(exp => {
+    const date = new Date(exp.date);
+    return date >= startOfMonth && date <= endOfMonth;
+  });
+  
+  const weeklyData = {};
+  const weeksInMonth = Math.ceil((endOfMonth.getDate() + startOfMonth.getDay()) / 7);
+  
+  for (let week = 0; week < weeksInMonth; week++) {
+    const weekStart = new Date(startOfMonth);
+    weekStart.setDate(startOfMonth.getDate() + (week * 7) - startOfMonth.getDay());
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6);
+    
+    const weekLabel = `Week ${week + 1}`;
+    weeklyData[weekLabel] = 0;
+    
+    monthlyExpenses.forEach(exp => {
+      const date = new Date(exp.date);
+      if (date >= weekStart && date <= weekEnd) {
+        weeklyData[weekLabel] += parseFloat(exp.amount || 0);
+      }
+    });
+  }
+  
+  return Object.entries(weeklyData).map(([name, value]) => ({
+    name,
+    amount: parseFloat(value.toFixed(2))
+  }));
+};
+
+export const getYearlyData = () => {
+  const expenses = getExpenses();
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  
+  const yearlyExpenses = expenses.filter(exp => {
+    const date = new Date(exp.date);
+    return date.getFullYear() === currentYear;
+  });
+  
+  const monthlyData = {};
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  monthNames.forEach((month, index) => {
+    monthlyData[month] = 0;
+    
+    yearlyExpenses.forEach(exp => {
+      const date = new Date(exp.date);
+      if (date.getMonth() === index) {
+        monthlyData[month] += parseFloat(exp.amount || 0);
+      }
+    });
+  });
+  
+  return Object.entries(monthlyData).map(([name, value]) => ({
+    name,
+    amount: parseFloat(value.toFixed(2))
+  }));
+};
+
+export const getCategoryBreakdown = (type = 'expense') => {
+  const data = type === 'expense' ? getExpenses() : getIncome();
+  const categories = {};
+  
+  data.forEach(item => {
+    if (!categories[item.category]) {
+      categories[item.category] = 0;
+    }
+    categories[item.category] += parseFloat(item.amount || 0);
+  });
+  
+  return Object.entries(categories).map(([name, value]) => ({
+    name,
+    amount: parseFloat(value.toFixed(2))
+  })).sort((a, b) => b.amount - a.amount);
+};
+
