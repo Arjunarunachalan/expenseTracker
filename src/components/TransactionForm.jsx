@@ -8,6 +8,7 @@ const TransactionForm = ({ onSave }) => {
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [success, setSuccess] = useState(false);
 
   const categories = type === 'expense' ? EXPENSE_CATEGORIES : INCOME_CATEGORIES;
@@ -23,7 +24,8 @@ const TransactionForm = ({ onSave }) => {
       type,
       amount: parseFloat(amount),
       description,
-      category
+      category,
+      date: new Date(date).toISOString()
     };
 
     if (type === 'expense') {
@@ -35,6 +37,7 @@ const TransactionForm = ({ onSave }) => {
     setAmount('');
     setDescription('');
     setCategory('');
+    setDate(new Date().toISOString().split('T')[0]);
     setSuccess(true);
     
     setTimeout(() => {
@@ -69,7 +72,18 @@ const TransactionForm = ({ onSave }) => {
 
         <form onSubmit={handleSubmit} className="transaction-form">
           <div className="form-group">
-            <label htmlFor="amount">Amount ($)</label>
+            <label htmlFor="date">Date</label>
+            <input
+              type="date"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="amount">Amount (₹)</label>
             <input
               type="number"
               id="amount"

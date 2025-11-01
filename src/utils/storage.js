@@ -26,7 +26,7 @@ export const addExpense = (expense) => {
   const newExpense = {
     ...expense,
     id: Date.now().toString(),
-    date: new Date().toISOString()
+    date: expense.date || new Date().toISOString()
   };
   expenses.push(newExpense);
   saveExpenses(expenses);
@@ -38,7 +38,7 @@ export const addIncome = (income) => {
   const newIncome = {
     ...income,
     id: Date.now().toString(),
-    date: new Date().toISOString()
+    date: income.date || new Date().toISOString()
   };
   incomeList.push(newIncome);
   saveIncome(incomeList);

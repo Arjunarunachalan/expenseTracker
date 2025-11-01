@@ -20,17 +20,17 @@ const MonthlyCashInHand = () => {
         <span className="month-label">{currentMonth}</span>
       </div>
       <div className={`cash-amount ${isNegative ? 'negative' : ''}`}>
-        <span className="currency">{isNegative ? '-$' : '$'}</span>
+        <span className="currency">{isNegative ? '-₹' : '₹'}</span>
         <span className="amount">{Math.abs(data.cashInHand).toFixed(2)}</span>
       </div>
       <div className="cash-breakdown">
         <div className="breakdown-item income">
           <span className="label">Income</span>
-          <span className="value">+${data.income.toFixed(2)}</span>
+          <span className="value">+₹{data.income.toFixed(2)}</span>
         </div>
         <div className="breakdown-item expense">
           <span className="label">Expenses</span>
-          <span className="value">-${data.expenses.toFixed(2)}</span>
+          <span className="value">-₹{data.expenses.toFixed(2)}</span>
         </div>
       </div>
     </div>

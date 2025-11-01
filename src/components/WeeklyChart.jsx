@@ -26,10 +26,10 @@ const WeeklyChart = () => {
             <YAxis 
               stroke="#64748b"
               fontSize={12}
-              tickFormatter={(value) => `$${value}`}
+              tickFormatter={(value) => `₹${value}`}
             />
             <Tooltip 
-              formatter={(value) => [`$${value}`, 'Amount']}
+              formatter={(value) => [`₹${value}`, 'Amount']}
               contentStyle={{
                 backgroundColor: 'white',
                 border: '1px solid #e2e8f0',

@@ -139,7 +139,7 @@ const TransactionTable = ({ onDelete, limit }) => {
                   <div className="transaction-date">{formatDate(transaction.date)}</div>
                 </div>
                 <div className={`transaction-amount ${isExpense ? 'expense' : 'income'}`}>
-                  {isExpense ? '-' : '+'}${parseFloat(transaction.amount).toFixed(2)}
+                  {isExpense ? '-' : '+'}₹{parseFloat(transaction.amount).toFixed(2)}
                 </div>
               </div>
               <button
