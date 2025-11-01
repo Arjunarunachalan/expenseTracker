@@ -1,0 +1,94 @@
+.cash-in-hand-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.cash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cash-header h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.month-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cash-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.cash-amount.negative .amount {
+  color: var(--danger-color);
+}
+
+.cash-breakdown {
+  display: flex;
+  gap: 1rem;
+}
+
+.breakdown-item {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.breakdown-item.income {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.breakdown-item.expense {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.breakdown-item .label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.breakdown-item .value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.breakdown-item.income .value {
+  color: var(--secondary-color);
+}
+
+.breakdown-item.expense .value {
+  color: var(--danger-color);
+}
+

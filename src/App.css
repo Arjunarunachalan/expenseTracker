@@ -1,0 +1,29 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  padding-bottom: 5rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.overview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    max-width: 768px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
